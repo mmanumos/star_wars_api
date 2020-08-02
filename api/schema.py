@@ -91,8 +91,17 @@ class Query(object):
 
     # queries to planets
     planet = graphene.Field(
-        PlanetType, name=graphene.String())
+        PlanetType, id=graphene.Int(), name=graphene.String())
     all_planets = graphene.List(PlanetType)
 
+    def resolve_planet(self, info, **kwargs):
+        id = kwargs.get('id')
+        name = kwargs.get('name')
+
+        if id is not None:
+            return Planet.objects.get(id=id)
+        if name is not None:
+            return Planet.objects.get(name=name)
+
     def resolve_all_planets(self, info, **kwargs):
-        return Planet.objects.select_related('film').all()
+        return Planet.objects.all()

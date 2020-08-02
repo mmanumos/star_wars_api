@@ -1,5 +1,6 @@
 from django.db import models
 from .character import Character
+from .planet import Planet
 
 
 class Film(models.Model):
@@ -9,6 +10,7 @@ class Film(models.Model):
     director = models.CharField(max_length=120)
     producer = models.CharField(max_length=120)
     characters = models.ManyToManyField(Character)
+    planets = models.ManyToManyField(Planet)
 
     def __str__(self):
         return self.name
