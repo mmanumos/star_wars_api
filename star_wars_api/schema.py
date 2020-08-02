@@ -8,4 +8,9 @@ class Query(api.schema.Query, graphene.ObjectType):
     pass
 
 
-schema = graphene.Schema(query=Query)
+class Mutation(api.schema.Mutation, graphene.ObjectType):
+    """ This class will inherit from multiple Queries """
+    pass
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
