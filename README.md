@@ -1,7 +1,7 @@
 # Star Wars - API
 
 API desarrollada bajo la estrucura de datos del universo de STAR WARS implementada en el sitio https://swapi.dev/  
-Para esta versión el usuario puede listar personajes, cada personaje ver las películas en las que participa,
+Para esta versión el usuario puede listar personajes, cada personaje puede ver las películas en las que participa,
 cada película permite ver detalles como el texto apertura, los planetas, el director y los productores.
 
 ## Entorno de desarrollo
