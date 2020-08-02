@@ -11,12 +11,12 @@ query{
       characters{
         id, 
         name
-        }
+    }
       planets{
         id,
         name
-        }
     }
+  }
 }
   
   
@@ -32,9 +32,9 @@ query{
         planets {
           id,
           name
-            }
-        }
+      }
     }
+  }
 }
   
   
@@ -46,9 +46,9 @@ query{
         characters{
           id,
           name
-            }
-        }
+      }
     }
+  }
 }
 /// Individual queries
   
@@ -63,12 +63,12 @@ query{
       characters{
         id,
         name
-        }
+    }
       planets{
         id,
         name
-        }
     }
+  }
 }
   
   
@@ -82,9 +82,9 @@ query{
         planets{
           id,
           name
-            }
-        }
+      }
     }
+  }
 }
   
   
@@ -98,9 +98,9 @@ query{
         characters{
           id,
           name
-            }
-        }
+      }
     }
+  }
 }
   
   ##### MUTATIONS
@@ -109,17 +109,17 @@ query{
   mutation{
     createFilm(name: "Film 8", episodeId: 8, 
       charactersList: [
-        {name: "Character 5"
-        },
-        {name: "Character 6"
-        }
-    ],
+    {name: "Character 5"
+    },
+    {name: "Character 6"
+    }
+  ],
       planetsList: [
-        {name: "Planet 3"
-        },
-        {name: "Planet 4"
-        }
-    ]
+    {name: "Planet 3"
+    },
+    {name: "Planet 4"
+    }
+  ]
     )
     {
       film{
@@ -129,23 +129,33 @@ query{
         characters{
           id,
           name
-            }
+      }
         planets{
           id,
           name
-            }
-        }
+      }
     }
+  }
 }
   
   mutation {
     createCharacter(characterData: {name: "Character 7"
-    }) {
+  }) {
       character {
         id
         name
-        }
     }
+  }
+}
+
+
+mutation{
+  createPlanet(name: "Planet 6"){
+    planet{
+      id, 
+      name
+    }
+  }
 }
 /// Update mutations
   mutation{
@@ -153,18 +163,29 @@ query{
       film{
         id,
         name
-        }
     }
+  }
 }
   
   
   mutation{
     updateCharacter(id: 6, characterData: {name: "Character 6 Updated"
-    })
+  })
     {
       character{
         id,
         name
-        }
     }
+  }
+}
+
+
+mutation{
+  updatePlanet(id: 1, name: "Planet 1 Updated")
+  {
+    planet{
+      id,
+      name
+    }
+  }
 }

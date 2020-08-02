@@ -31,11 +31,6 @@ cada película permite ver detalles como el texto apertura, los planetas, el dir
 
 ### 2do
 - En el navegador digitar la url: http://localhost:8000/graphql/ este lo dirigirá al explorador Graphiql.
-
-    ![Graphiql Explorer]
-    (https://github.com/mmanumos/star_wars_api/tree/master/imgs_readme/graphi_explorer.PNG)
-
-- En el explorador puede hacer uso de algunas queries y mutations guardadas en el archivo "star_wars.json" ubicado
-  en el directorio raíz de la API.
+- En el explorador graphiql puede hacer uso de algunas queries y mutations guardadas en el archivo "star_wars.json"     ubicado en el directorio raíz de la API.
 
 

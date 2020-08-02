@@ -118,6 +118,8 @@ class CharacterData(graphene.InputObjectType):
     mass = graphene.Int()
     gender = graphene.String()
 
+# customized data inputs for Film (lists -> ManyToMany)
+
 
 class PlanetData(graphene.InputObjectType):
     """ Data input for Planet """
@@ -220,9 +222,41 @@ class UpdateCharacter(graphene.Mutation):
             return None
 
 
+class CreatePlanet(graphene.Mutation):
+    """ Create Planet """
+    class Arguments:
+        name = graphene.String(required=True)
+
+    planet = graphene.Field(PlanetType)
+
+    def mutate(self, info, name):
+        obj = Planet.objects.create(name=name)
+        return CreatePlanet(planet=obj)
+
+
+class UpdatePlanet(graphene.Mutation):
+    """ Update planet """
+    class Arguments:
+        id = graphene.Int(required=True)
+        name = graphene.String(required=True)
+
+    planet = graphene.Field(PlanetType)
+
+    def mutate(self, info, id, name):
+        try:
+            obj = Planet.objects.get(id=id)
+            obj.name = name
+            obj.save()
+            return UpdatePlanet(planet=obj)
+        except Exception:
+            return None
+
+
 class Mutation(ObjectType):
     """ mutations register """
     create_film = CreateFilm.Field()
     update_film = UpdateFilm.Field()
     create_character = CreateCharacter.Field()
     update_character = UpdateCharacter.Field()
+    create_planet = CreatePlanet.Field()
+    update_planet = UpdatePlanet.Field()
