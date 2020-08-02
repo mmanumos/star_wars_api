@@ -1,0 +1,170 @@
+/// Colective queries
+
+query{
+    allFilms{
+      id, 
+      name,
+      episodeId,
+      openingCrawl,
+      director,
+      producer,
+      characters{
+        id, 
+        name
+        }
+      planets{
+        id,
+        name
+        }
+    }
+}
+  
+  
+  query{
+    allCharacters{
+      id,
+      name, 
+      height,
+      filmSet{
+        id,
+        name, 
+        episodeId,
+        planets {
+          id,
+          name
+            }
+        }
+    }
+}
+  
+  
+  query{
+    allPlanets{
+      id,
+      name,
+      filmSet{
+        characters{
+          id,
+          name
+            }
+        }
+    }
+}
+/// Individual queries
+  
+  query{
+    film(id: 1){
+      id,
+      name,
+      episodeId,
+      openingCrawl,
+      director,
+      producer,
+      characters{
+        id,
+        name
+        }
+      planets{
+        id,
+        name
+        }
+    }
+}
+  
+  
+  query{
+    character(id: 1){
+      id,
+      name,
+      filmSet{
+        id,
+        name,
+        planets{
+          id,
+          name
+            }
+        }
+    }
+}
+  
+  
+  query{
+    planet(id: 1){
+      id,
+      name,
+      filmSet{
+        id,
+        name,
+        characters{
+          id,
+          name
+            }
+        }
+    }
+}
+  
+  ##### MUTATIONS
+  /// Create mutations
+  
+  mutation{
+    createFilm(name: "Film 8", episodeId: 8, 
+      charactersList: [
+        {name: "Character 5"
+        },
+        {name: "Character 6"
+        }
+    ],
+      planetsList: [
+        {name: "Planet 3"
+        },
+        {name: "Planet 4"
+        }
+    ]
+    )
+    {
+      film{
+        id,
+        name,
+        episodeId,
+        characters{
+          id,
+          name
+            }
+        planets{
+          id,
+          name
+            }
+        }
+    }
+}
+  
+  mutation {
+    createCharacter(characterData: {name: "Character 7"
+    }) {
+      character {
+        id
+        name
+        }
+    }
+}
+/// Update mutations
+  mutation{
+    updateFilm(id: 1, name: "Film 1 updated"){
+      film{
+        id,
+        name
+        }
+    }
+}
+  
+  
+  mutation{
+    updateCharacter(id: 6, characterData: {name: "Character 6 Updated"
+    })
+    {
+      character{
+        id,
+        name
+        }
+    }
+}
