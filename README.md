@@ -34,3 +34,12 @@ cada película permite ver detalles como el texto apertura, los planetas, el dir
 - En el explorador graphiql puede hacer uso de algunas queries y mutations guardadas en el archivo "star_wars.json"     ubicado en el directorio raíz de la API.
 
 
+## Unittest
+Las pruebas unitarias se pueden ejecutar el comando 
+  py.test -s
+
+Para esto necesario instalar las librerías:
+* [x] pytest-django
+* [x] mixer
+
+
